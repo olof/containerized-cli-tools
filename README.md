@@ -28,3 +28,13 @@ In other cases, the alias could contain a series of volume mounts
 (e.g. `-v $PWD:$PWD`), and a `-w $PWD` to make the program
 believe it's executed from the same directory that you are
 running the container from.
+
+## Availability
+
+No OCI images are published at this point in time. Instead, build
+the images yourself. Like so:
+
+```
+cd youplot
+docker build -t youplot .
+```
