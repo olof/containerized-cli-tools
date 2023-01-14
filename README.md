@@ -43,3 +43,14 @@ podman build -t youplot .
 
 They are the same. Use whatever you want. alias one to the other, I don't
 care :). If something doesn't work in either of them, let me know.
+
+## Contributing
+
+If you get what I'm doing here, please help by adding more tools :).
+
+Youplot is ruby, and that's not too jucky, but the whole point of
+this is for me not to have to taint my system with random
+language ecosystems. So even jucky technology would be welcome in
+this repo, like Java! (Dear Java developers, if you read this and
+take offence, please consider porting your software to Erlang or
+Perl.)
