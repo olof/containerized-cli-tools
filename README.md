@@ -15,7 +15,7 @@ your system directly:
 
 ```
 $ curl -sL https://git.io/ISLANDScsv | sort -nk2 -t, | tail -n3 |
-> podman run -i --rm youplot -C bar -d, -t "Areas of the World's Major Landmasses"
+> uplot -C bar -d, -t "Areas of the World's Major Landmasses"
                    Areas of the World's Major Landmasses
                  ┌                                        ┐
    North America ┤■■■■■■■■■■■■■■■■■ 9390.0
