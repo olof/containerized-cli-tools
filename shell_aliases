@@ -1,0 +1,10 @@
+## Inspiration for shell aliases. Probably not something you'd copy wholesale.
+
+# uplot is a command line plotting tool, data visualization
+alias uplot='podman run -i --rm youplot'
+
+# if you don't know what npm, you don't need it, spare yourself
+alias npm='podman run --rm -ti -v $PWD:$PWD -w $PWD npm'
+
+# vite is a dev server for js projects, see https://vitejs.dev/guide/cli.html
+alias vite='podman run -p 127.0.0.1:5173:5173 --rm -ti -v $PWD:$PWD -w $PWD vite --host 0.0.0.0'
