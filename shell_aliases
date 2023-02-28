@@ -6,6 +6,13 @@ alias uplot='podman run -i --rm youplot'
 # if you don't know what npm, you don't need it, spare yourself
 alias npm='podman run --rm -ti -v $PWD:$PWD -w $PWD --entrypoint npm docker.io/node:19-alpine'
 
+# cargo is npm but for rust! ♥
+alias cargo='podman run --rm -ti -v $PWD:$PWD -w $PWD --entrypoint cargo docker.io/rust:1'
+
+# TODO: both for npm and cargo, i should probably consider investigating
+#       how they cache their stuff between projects. but i don't use either
+#       that much, so... pull requests?
+
 # Maybe this works? vite without any args will start a server
 # on 127.0.0.1:5173. But we want it to be 0.0.0.0:5173, as we're
 # otherwise unable to communicate it, while running in the
