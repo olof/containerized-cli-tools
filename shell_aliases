@@ -6,5 +6,23 @@ alias uplot='podman run -i --rm youplot'
 # if you don't know what npm, you don't need it, spare yourself
 alias npm='podman run --rm -ti -v $PWD:$PWD -w $PWD --entrypoint npm docker.io/node:19-alpine'
 
-# vite is a dev server for js projects, see https://vitejs.dev/guide/cli.html
-alias vite='podman run -p 127.0.0.1:5173:5173 --rm -ti -v $PWD:$PWD -w $PWD vite --host 0.0.0.0'
+# Maybe this works? vite without any args will start a server
+# on 127.0.0.1:5173. But we want it to be 0.0.0.0:5173, as we're
+# otherwise unable to communicate it, while running in the
+# container. So we add the --host flags, but only when we think
+# the intended action was to start the server. But this is not
+# foolproof. Errors related to an invalid --host flag should be
+# addressed here as they occur.
+vite() {
+	case $1 in
+		''|-*)
+			podman run -p 127.0.0.1:5173:5173 \
+			           --rm -ti -v $PWD:$PWD -w $PWD \
+				   vite --host 0.0.0.0 "$@"
+			;;
+		*)
+			shift
+			podman run --rm -ti -v $PWD:$PWD -w $PWD vite build "$@"
+			;;
+	esac
+}
